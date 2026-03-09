@@ -209,10 +209,10 @@ def like_activity():
     activity_id = data.get("activity_id")
 
     if not isinstance(user_id, str) or user_id.strip() == "":
-        return jsonify({"error": "user_id is required."}), 404
+        return jsonify({"error": "user_id is required."}), 400
 
     if not isinstance(activity_id, int):
-        return jsonify({"error": "activity_id (integer) is required"}), 404
+        return jsonify({"error": "activity_id (integer) is required"}), 400
 
     user_id = user_id.strip()
     with get_db() as conn:
